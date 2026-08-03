@@ -16,9 +16,18 @@ export function CoverScene({ onOpen, onSecretNotes, onEveningToggle, onBookmark 
   const sy = useSpring(ry, { stiffness: 90, damping: 14 });
   const sheen = useTransform(sy, [-8, 8], ["18%", "82%"]);
   const [opening, setOpening] = useState(false);
+  const sweep = useTransform(
+    sheen,
+    (v) =>
+      `linear-gradient(105deg, transparent 0%, color-mix(in oklab, var(--cream) 70%, transparent) ${v}, transparent 100%)`,
+  );
   const holdRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  useEffect(() => () => holdRef.current && clearTimeout(holdRef.current), []);
+  useEffect(() => {
+    return () => {
+      if (holdRef.current) clearTimeout(holdRef.current);
+    };
+  }, []);
 
   const open = () => {
     if (opening) return;
@@ -71,8 +80,8 @@ export function CoverScene({ onOpen, onSecretNotes, onEveningToggle, onBookmark 
             onPointerDown={() => {
               holdRef.current = setTimeout(onEveningToggle, 3000);
             }}
-            onPointerUp={() => holdRef.current && clearTimeout(holdRef.current)}
-            onPointerLeave={() => holdRef.current && clearTimeout(holdRef.current)}
+            onPointerUp={() => { if (holdRef.current) clearTimeout(holdRef.current); }}
+            onPointerLeave={() => { if (holdRef.current) clearTimeout(holdRef.current); }}
             className="cursor-feather relative block h-[62vh] max-h-[560px] w-[min(78vw,400px)] origin-left overflow-hidden rounded-r-2xl rounded-l-sm shadow-lift"
             style={{ transformStyle: "preserve-3d" }}
             animate={opening ? { rotateY: -158 } : { rotateY: 0 }}
@@ -92,12 +101,7 @@ export function CoverScene({ onOpen, onSecretNotes, onEveningToggle, onBookmark 
             <motion.div
               aria-hidden
               className="absolute inset-0 opacity-70 mix-blend-soft-light"
-              style={{
-                background: useTransform(
-                  sheen,
-                  (v) => `linear-gradient(105deg, transparent 0%, color-mix(in oklab, var(--cream) 70%, transparent) ${v}, transparent 100%)`,
-                ),
-              }}
+              style={{ background: sweep }}
             />
 
             {/* stitched cream trim */}
