@@ -112,11 +112,11 @@ export function CoverScene({ onOpen, onSecretNotes, onEveningToggle, onBookmark 
               <p className="font-display text-3xl font-semibold text-cream drop-shadow-[0_1px_0_var(--sage-deep)] sm:text-4xl">
                 Aditya Sharma
               </p>
-              <p className="mt-3 font-script text-xl text-cream/85">
+              <p className="mt-3 font-script text-2xl text-cream drop-shadow-[0_1px_1px_var(--sage-deep)]">
                 “Every Expert Was Once a Beginner.”
               </p>
               <div className="mx-auto mt-6 h-px w-20 bg-cream/60" />
-              <p className="mt-6 font-body text-[11px] uppercase tracking-[0.34em] text-cream/70">
+              <p className="mt-6 font-body text-[11px] uppercase tracking-[0.34em] text-cream/85">
                 A Diary of Becoming a Developer
               </p>
             </div>
@@ -130,7 +130,7 @@ export function CoverScene({ onOpen, onSecretNotes, onEveningToggle, onBookmark 
                 e.stopPropagation();
                 onSecretNotes();
               }}
-              className="cursor-glow absolute right-0 top-1/2 h-3 w-16 -translate-y-1/2 rounded-l-full bg-tan/90 shadow-card"
+              className="cursor-glow absolute right-0 top-[74%] h-3 w-16 rounded-l-full bg-tan/90 shadow-card"
             />
           </motion.button>
 
