@@ -198,7 +198,7 @@ export function DiaryExperience() {
           <ChapterHello
             onPenClick={() => {
               blip(660, 0.12);
-              setPenLine(CODE_LINES[Math.floor(Math.random() * CODE_LINES.length)]);
+              setPenLine(CODE_LINES[Math.floor(Math.random() * CODE_LINES.length)] ?? CODE_LINES[0]!);
               setTimeout(() => setPenLine(null), 5000);
             }}
           />
