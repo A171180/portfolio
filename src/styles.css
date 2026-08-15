@@ -333,3 +333,80 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ==========================================================================
+   Phase 2 — futuristic developer workspace tokens (same sage & beige family,
+   sharpened with cool glass, grid and glow values).
+   ========================================================================== */
+
+@theme inline {
+  --color-glass: var(--glass);
+  --color-glass-line: var(--glass-line);
+  --color-glow: var(--glow);
+}
+
+:root {
+  --glass: oklch(0.98 0.008 92 / 0.55);
+  --glass-line: oklch(0.588 0.03 155 / 0.32);
+  --glow: oklch(0.72 0.05 158 / 0.55);
+  --grid-line: oklch(0.588 0.03 155 / 0.16);
+}
+
+.evening {
+  --glass: oklch(0.42 0.03 220 / 0.55);
+  --glass-line: oklch(0.78 0.04 165 / 0.28);
+  --glow: oklch(0.78 0.06 175 / 0.5);
+  --grid-line: oklch(0.78 0.04 165 / 0.16);
+}
+
+@utility glass-panel {
+  background: var(--glass);
+  border: 1px solid var(--glass-line);
+  backdrop-filter: blur(14px) saturate(1.1);
+  box-shadow: var(--shadow-card);
+}
+
+@utility grid-floor {
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@utility glow-ring {
+  box-shadow:
+    0 0 0 1px var(--glass-line),
+    0 0 40px -6px var(--glow);
+}
+
+@utility oval-frame {
+  border-radius: 50% / 42%;
+  overflow: hidden;
+  border: 1px solid var(--glass-line);
+  box-shadow:
+    0 0 0 10px color-mix(in oklab, var(--cream) 40%, transparent),
+    0 40px 80px -40px var(--shadow-tint),
+    0 0 70px -10px var(--glow);
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@utility animate-float {
+  animation: float-y 7s ease-in-out infinite;
+}
+
+/* Custom cursor: hide the native one only on precise pointers */
+@media (hover: hover) and (pointer: fine) {
+  html.cursorless,
+  html.cursorless body,
+  html.cursorless * {
+    cursor: none !important;
+  }
+}
