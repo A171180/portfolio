@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { DiaryExperience } from "@/components/diary/DiaryExperience";
+import { Experience } from "@/components/Experience";
 
-const title = "Aditya Sharma — The Diary of Becoming a Developer";
+const title = "Aditya Sharma — Full Stack Developer";
 const description =
-  "An interactive sage-and-beige diary portfolio: the journey of Aditya Sharma from curious student to Full Stack & Cloud Developer, told chapter by chapter.";
+  "Portfolio of Aditya Sharma, a Full Stack Developer building interactive web experiences, applications, and AI-powered experiments.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -20,5 +20,5 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  return <DiaryExperience />;
+  return <Experience />;
 }
