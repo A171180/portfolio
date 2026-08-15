@@ -202,16 +202,17 @@ export function BookIntro({ onEnter, onPageTurn, reduced }: Props) {
               {FLOATERS.map((f) => (
                 <motion.div
                   key={f.text}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, scale: 0.9, y: 14 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.7, delay: reduced ? 0 : f.delay }}
-                  className="glass-panel animate-float absolute left-1/2 top-1/2 whitespace-nowrap rounded-full px-4 py-2 font-body text-[10px] uppercase tracking-[0.22em] text-foreground"
-                  style={{ translateX: f.x, translateY: f.y }}
+                  className="glass-panel animate-float absolute whitespace-nowrap rounded-full px-4 py-2 font-body text-[10px] uppercase tracking-[0.22em] text-foreground"
+                  style={{ left: f.left, top: f.top }}
                 >
                   {f.text}
                 </motion.div>
               ))}
+
             </>
           )}
         </AnimatePresence>
