@@ -147,6 +147,15 @@ export function BookIntro({ onEnter, onPageTurn, reduced }: Props) {
               style={{ boxShadow: "0 0 60px 6px var(--glow)" }}
             />
 
+            {/* inside of the cover (backface, no mirrored text) */}
+            <motion.div
+              aria-hidden
+              className="paper-sheet absolute inset-0 origin-left rounded-l-2xl"
+              style={{ transformStyle: "preserve-3d", backfaceVisibility: "hidden", rotateY: 180 }}
+              animate={opened ? { rotateY: 18 } : { rotateY: 180 }}
+              transition={{ duration: reduced ? 0.25 : 1.8, ease: [0.22, 1, 0.28, 1] }}
+            />
+
             {/* the linen cover */}
             <motion.button
               type="button"
@@ -221,7 +230,7 @@ export function BookIntro({ onEnter, onPageTurn, reduced }: Props) {
 
       {/* controls */}
       <div className="relative z-10 mt-14 flex min-h-14 flex-col items-center">
-        <AnimatePresence mode="wait">
+        <AnimatePresence>
           {stage === "closed" && (
             <motion.p
               key="hint"
