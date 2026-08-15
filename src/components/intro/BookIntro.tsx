@@ -153,10 +153,11 @@ export function BookIntro({ onEnter, onPageTurn, reduced }: Props) {
               aria-label="Open the book and enter the portfolio"
               onClick={open}
               className="absolute inset-0 origin-left overflow-hidden rounded-r-2xl rounded-l-sm shadow-lift"
-              style={{ transformStyle: "preserve-3d" }}
+              style={{ transformStyle: "preserve-3d", backfaceVisibility: "hidden" }}
               animate={opened ? { rotateY: -162 } : { rotateY: 0 }}
               transition={{ duration: reduced ? 0.25 : 1.8, ease: [0.22, 1, 0.28, 1] }}
             >
+
               <img
                 src={linen}
                 alt=""
