@@ -10,10 +10,11 @@ type Props = {
 };
 
 const FLOATERS = [
-  { text: "FULL STACK DEVELOPER", x: "-58%", y: "-32%", delay: 0.5 },
-  { text: "C++ • PYTHON • JAVASCRIPT", x: "52%", y: "-14%", delay: 0.8 },
-  { text: "BUILDING IDEAS INTO WORKING PRODUCTS", x: "-46%", y: "36%", delay: 1.1 },
+  { text: "FULL STACK DEVELOPER", left: "-8%", top: "18%", delay: 0.4 },
+  { text: "C++ • PYTHON • JAVASCRIPT", left: "62%", top: "38%", delay: 0.7 },
+  { text: "BUILDING IDEAS INTO WORKING PRODUCTS", left: "2%", top: "78%", delay: 1 },
 ];
+
 
 /**
  * Phase 1: a cinematic premium book. Click opens it, the first chapter floats
